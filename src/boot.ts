@@ -7,7 +7,7 @@ import {MATERIAL_DIRECTIVES, MATERIAL_PROVIDERS} from "ng2-material/all";
 import {enableProdMode, provide} from "angular2/core";
 import {FORM_PROVIDERS} from "angular2/common";
 
-import {HoodieService} from "./services/hoodie.service"
+import {HoodieService} from "./services/hoodie.service";
 import {HTTP_PROVIDERS} from "angular2/http";
 
 

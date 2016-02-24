@@ -3,7 +3,6 @@ import {FORM_PROVIDERS, FormBuilder, Validators,ControlGroup,NgClass} from "angu
 import {ROUTER_DIRECTIVES,RouteConfig} from "angular2/router";
 
 
-
 import {HoodieService} from "./services/hoodie.service";
 import {ValidationService } from "./services/validation.service";
 import {ListDirective} from "./components/list/list.directive";
@@ -17,7 +16,7 @@ import {MATERIAL_DIRECTIVES, Media, SidenavService} from "ng2-material/all";
 @Component({
     selector: "my-app",
     templateUrl: "app.component.html",
-    directives: [ROUTER_DIRECTIVES,ListDirective, LoginDirective, ControlMessages,MATERIAL_DIRECTIVES,NgClass]
+    directives: [ROUTER_DIRECTIVES, ListDirective, LoginDirective, ControlMessages, MATERIAL_DIRECTIVES, NgClass]
 
 })
 
@@ -27,8 +26,8 @@ export class AppComponent implements OnInit {
     profilepic:string;
     username:string;
     loginForm:ControlGroup;
-    backdrop:boolean=false;
-    actualList={name:"",id:"",color:0};
+    backdrop:boolean = false;
+    actualList = {name: "", id: "", color: 0};
 
     name:string = "";
     title:string = "";
@@ -37,8 +36,8 @@ export class AppComponent implements OnInit {
     public hoodie:any;
 
 
-    constructor(private _ngZone:NgZone, builder:FormBuilder, _hoodieService:HoodieService,public sidenav:SidenavService) {
-        this.hoodie=_hoodieService.hoodie;
+    constructor(private _ngZone:NgZone, builder:FormBuilder, _hoodieService:HoodieService, public sidenav:SidenavService) {
+        this.hoodie = _hoodieService.hoodie;
         this.loginForm = builder.group({
             username: ["", Validators.compose([Validators.required])],
             password: ["", Validators.compose([Validators.required])]
@@ -55,8 +54,8 @@ export class AppComponent implements OnInit {
                 .done((listnames) => {
                     this._ngZone.runOutsideAngular(()=> {
                         this.listnames = listnames;
-                        console.log(this.listnames);
                         this._ngZone.run(() => {
+                            console.log("updated listnames");
                         });
                     });
                 });
@@ -67,6 +66,7 @@ export class AppComponent implements OnInit {
             this._ngZone.runOutsideAngular(()=> {
                 this.listnames.push(newTodoObject);
                 this._ngZone.run(() => {
+                    console.log("list added");
                 });
             });
         });
@@ -79,6 +79,7 @@ export class AppComponent implements OnInit {
                     }
                 }
                 this._ngZone.run(() => {
+                    console.log("list removed");
                 });
             });
 
@@ -87,12 +88,13 @@ export class AppComponent implements OnInit {
         this.hoodie.account.on("signup signin", (username:string) => {
             this._ngZone.runOutsideAngular(()=> {
                 this.online = true;
-                this.username= username;
+                this.username = username;
                 this.loginForm.value.username = username;
                 this.hoodie.store.findAll("listnames").done((res:any) => {
                     this.listnames = res;
                 });
                 this._ngZone.run(() => {
+                    console.log("signin / signup");
                 });
             });
 
@@ -102,12 +104,13 @@ export class AppComponent implements OnInit {
             this._ngZone.runOutsideAngular(()=> {
                 this.online = false;
                 this.loginForm.value.username = "";
-                this.newlistname="";
-                this.actualList={name:"",id:"",color:0};
-                this.profilepic="";
-                this.username="";
+                this.newlistname = "";
+                this.actualList = {name: "", id: "", color: 0};
+                this.profilepic = "";
+                this.username = "";
                 this.listnames = [];
                 this._ngZone.run(() => {
+                    console.log("signout");
                 });
             });
 
@@ -119,10 +122,9 @@ export class AppComponent implements OnInit {
             hello(auth.network).api("/me").then((r) => {
                 // Inject it into the container
                 console.log(r);
-                this.profilepic= r.picture;
+                this.profilepic = r.picture;
                 console.log(this.profilepic);
-                this.hoodie.account.signIn(r.name, r.id).fail(()=>
-                {
+                this.hoodie.account.signIn(r.name, r.id).fail(()=> {
                     this.hoodie.account.signUp(r.name, r.id);
                 });
 
@@ -132,10 +134,9 @@ export class AppComponent implements OnInit {
     }
 
 
-
     logout() {
-        this.online=false;
-        this.profilepic="";
+        this.online = false;
+        this.profilepic = "";
         hello("google").logout();
         this.hoodie.account.signOut(this.loginForm.value.username, this.loginForm.value.password);
     }
@@ -152,18 +153,19 @@ export class AppComponent implements OnInit {
         this.hoodie.store.add("listnames", {"name": this.newlistname});
     }
 
-    showList(name,id){
+    showList(name, id) {
 
-        this.actualList.name=name;
-        this.actualList.id=id;
+        this.actualList.name = name;
+        this.actualList.id = id;
     }
 
     open(name:string) {
         this.sidenav.show(name);
     }
+
     close(name:string) {
         this.sidenav.hide(name);
-        this.backdrop=false;
+        this.backdrop = false;
 
     }
 

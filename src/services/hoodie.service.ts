@@ -11,12 +11,12 @@ export class HoodieService {
     public hoodie:any = new Hoodie();
     public hello:any = new hello();
 
-    constructor(){
+    constructor() {
         this.hello.init({
 
             google: "454280357802-fl53288ksphhfdj6rv0l2ubob61285d1.apps.googleusercontent.com",
-            facebook:"232692377068146"
-        },{redirect_uri: '/'});
+            facebook: "232692377068146"
+        }, {redirect_uri: "/"});
 
 
     }

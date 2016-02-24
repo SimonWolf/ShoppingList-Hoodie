@@ -33,6 +33,7 @@ export class ListDirective implements OnChanges,OnInit {
             this._ngZone.runOutsideAngular(()=> {
                 this.list_TODOS.unshift(newTodoObject);
                 this._ngZone.run(() => {
+                    console.log("Item added");
                 });
             });
         });
@@ -45,6 +46,7 @@ export class ListDirective implements OnChanges,OnInit {
                     }
                 }
                 this._ngZone.run(() => {
+                    console.log("Item removed");
                 });
             });
 
@@ -58,6 +60,7 @@ export class ListDirective implements OnChanges,OnInit {
                 this._ngZone.runOutsideAngular(()=> {
                     this.list_TODOS = allTodos;
                     this._ngZone.run(() => {
+                        console.log("get Items");
                     });
                 });
             });
@@ -65,12 +68,12 @@ export class ListDirective implements OnChanges,OnInit {
         this.hoodie.store.find("listnames", this.list_ID).done((r)=> {
             this._ngZone.runOutsideAngular(()=> {
                 if (!r.color) {
-                    this.list_COLOR = 0
-                }
-                else {
-                    this.list_COLOR = r.color
+                    this.list_COLOR = 0;
+                } else {
+                    this.list_COLOR = r.color;
                 }
                 this._ngZone.run(() => {
+                    console.log("get color");
                 });
             });
         });
@@ -87,7 +90,7 @@ export class ListDirective implements OnChanges,OnInit {
     changeColor() {
         this.list_COLOR++;
         if (this.list_COLOR >= 20) {
-            this.list_COLOR = 0
+            this.list_COLOR = 0;
         }
         this.hoodie.store.update("listnames", this.list_ID, {color: this.list_COLOR});
 

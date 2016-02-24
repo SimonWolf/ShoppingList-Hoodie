@@ -63,7 +63,9 @@ var GulpConfig = (function () {
         // Relative to Root folder
 
         this.typeScriptDefinitions = [
-            "typings/tsd.d.ts"
+            "typings/tsd.d.ts",
+            "node_modules/angular2/typings/**/*.d.ts"
+
         ];
 
         this.copyFiles = [
