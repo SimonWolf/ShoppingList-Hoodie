@@ -16,7 +16,7 @@ Hoodie is a frontend abstraction of a generic backend web service.
 [gulp](http://gulpjs.com/)
 
 ##### install components:
-     bin/update_libs.sh
+     dev/update_libs.sh
 
 
 ##### start application:
