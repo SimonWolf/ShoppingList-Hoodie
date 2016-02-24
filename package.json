@@ -7,7 +7,6 @@
     "es6-shim": "0.33.3",
     "hoodie-plugin-angularjs": "^0.1.1",
     "hoodie-plugin-social": "^0.10.1",
-    "ng2-ui-auth": "*",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.0",
     "zone.js": "0.5.14",

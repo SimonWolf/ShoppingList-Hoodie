@@ -10,10 +10,11 @@ var GulpConfig = (function () {
             "bower_components/jquery/jquery.min.js",
             "bower_components/lodash/lodash.min.js",
             "bower_components/animate.css/animate.min.css",
-            "bower_components/bootstrap/dist/css/bootstrap.min.css",
             "bower_components/font-awesome/css/font-awesome.min.css",
-            "bower_components/bootstrap/js/**/*.js",
-            "bower_components/bootstrap/dist/css/bootstrap.min.js",
+
+            "bower_components/bootstrap/dist/js/bootstrap.min.js",
+            "bower_components/bootstrap/dist/css/bootstrap.min.css",
+
             "bower_components/hello/dist/hello.all.min.js"
 
 
@@ -74,7 +75,6 @@ var GulpConfig = (function () {
             ["node_modules/es6-promise/**/*.js", "es6-promise"],
             ["node_modules/es6-shim/**/*.js", "es6-shim"],
             ["node_modules/reflect-metadata/**/*.js", "reflect-metadata"],
-            ["node_modules/ng2-ui-auth/**/*.js", "ng2-ui-auth"],
             ["assets/images/**","images"],
             ["node_modules/ng2-material/**","ng2-material"]
         ];
