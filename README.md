@@ -16,13 +16,10 @@ Hoodie is a frontend abstraction of a generic backend web service.
 [gulp](http://gulpjs.com/)
 
 ##### install components:
-     npm install
-     bower install
+     bin/update_libs.sh
 
-##### hoodie:
-      start hoodie
 
 ##### start application:
-      gulp watch
+      dev/start.sh
 
 The shoppinglist runs on <http://localhost:9999>
