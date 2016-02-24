@@ -1,0 +1,120 @@
+<div login></div>
+<md-sidenav-container>
+
+    <md-sidenav name="left">
+        <md-toolbar
+                style="background-color: #f6f6f6;color:#787878;border-color: #cacbcd;border-right-width: thin;border-right-style: solid">
+            <div class="md-toolbar-tools">
+                <button style="margin-left: 10px" md-button class="md-icon-button" aria-label="Settings"
+                        (click)="clicked('Menu')">
+                    <img *ngIf="profilepic" [src]="profilepic" style="margin:-12px">
+                    <img *ngIf="!profilepic" src="/images/profil.jpg" style="margin:-12px">
+                </button>
+                <h2 *ngIf="online">
+                    <span>{{username}}</span>
+                </h2>
+                <span flex></span>
+                <button *ngIf="online" md-button class="md-icon-button" aria-label="More" (click)="logout()">
+                    <i class="fa fa-sign-out fa-lg" style="color: #787878"></i>
+                </button>
+                <h4 *ngIf="!online">Sign in</h4>
+                <button *ngIf="!online" md-button class="md-icon-button" aria-label="More" data-toggle="modal"
+                        data-target="#login-modal">
+                    <i class="fa fa-sign-in fa-lg" style="color: #787878"></i>
+                </button>
+            </div>
+        </md-toolbar>
+        <div class="list-group-item" style="background-color: #fbfbfb">
+            <div class="input-group">
+                <input (keyup.enter)="newlist()" [(ngModel)]="newlistname" type="text" class="form-control"
+                       placeholder="new List...">
+
+                     <span class="input-group-btn">
+                            <button (click)="newlist()" class="btn btn-default" type="button">Add</button>
+                     </span>
+            </div>
+        </div>
+
+        <a *ngFor="#item of listnames,#i=index" class="list-group-item" style="cursor: pointer"
+           (click)="showList(item.name,item.id,item.color);close('left');">
+
+            <div class="media">
+                <button md-button class="md-icon-button pull-left" aria-label="Settings"
+                        style="background-color: #607d8b">
+                    <h3 style="color:white;margin:0">{{item.name[0]}}</h3>
+                </button>
+
+
+                <div class="media-body">
+                    <h4 class="media-heading" style="padding-top: 10px;padding-left: 12px">{{item.name}}</h4>
+                </div>
+            </div>
+        </a>
+
+    </md-sidenav>
+
+
+    <div class="col-md-4 hidden-xs" style="padding: 0px;margin: 0px;">
+        <md-toolbar
+                style=" background-color: #f6f6f6;color:#787878;border-color: #cacbcd;border-right-width: thin;border-right-style: solid">
+            <div class="md-toolbar-tools">
+                <button style="margin-left: 10px" md-button class="md-icon-button" aria-label="Settings"
+                        (click)="clicked('Menu')">
+                    <img *ngIf="profilepic" [src]="profilepic" style="margin:-12px">
+                    <img *ngIf="!profilepic" src="/images/profil.jpg" style="margin:-12px">
+                </button>
+                <h2 *ngIf="online">
+                    <span>{{username}}</span>
+                </h2>
+                <span flex></span>
+                <button *ngIf="online" md-button class="md-icon-button" aria-label="More" (click)="logout()">
+                    <i class="fa fa-sign-out fa-lg" style="color: #787878"></i>
+                </button>
+                <h4 *ngIf="!online">Sign in</h4>
+                <button *ngIf="!online" md-button class="md-icon-button" aria-label="More" data-toggle="modal"
+                        data-target="#login-modal">
+                    <i class="fa fa-sign-in fa-lg" style="color: #787878"></i>
+                </button>
+            </div>
+        </md-toolbar>
+
+        <div class="list-group-item" style="background-color: #fbfbfb">
+            <div class="input-group">
+                <input (keyup.enter)="newlist()" [(ngModel)]="newlistname" type="text" class="form-control"
+                       placeholder="new List...">
+
+                     <span class="input-group-btn">
+                            <button (click)="newlist()" class="btn btn-default" type="button">Add</button>
+                     </span>
+            </div>
+        </div>
+
+        <a *ngFor="#item of listnames,#i=index" class="list-group-item" style="cursor: pointer"
+           (click)="showList(item.name,item.id,item.color)">
+
+            <div class="media">
+                <button md-button class="md-icon-button pull-left" aria-label="Settings"
+                        style="background-color: #607d8b">
+                    <h3 style="color:white;margin:0px">{{item.name[0]}}</h3>
+                </button>
+
+
+                <div class="media-body">
+                    <h4 class="media-heading" style="padding-top: 10px;padding-left: 12px">{{item.name}}</h4>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <div class="col-md-8"
+         style="padding: 0;margin: 0; border-color: #cacbcd;border-left-width: thin;border-left-style: solid;">
+
+        <list class="list-group" [list]="todos"
+              [list_NAME]="actualList.name" [hoodie]="hoodie" [list_ID]="actualList.id"></list>
+
+    </div>
+
+
+</md-sidenav-container>
+
+

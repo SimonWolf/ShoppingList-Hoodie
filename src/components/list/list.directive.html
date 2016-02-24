@@ -1,0 +1,107 @@
+<md-toolbar class="listToolbar" [style.position]="isMobile() ? 'fixed' : 'relative'"
+            [style.background-color]="backgroundColor()" [style.color]="Color()">
+    <div class="md-toolbar-tools">
+        <button md-button class="md-icon-button visible-xs-inline-block" aria-label="Settings"
+                (click)="openNav('left')">
+            <i class="fa fa-bars fa-lg" [style.color]="Color()"></i>
+        </button>
+        <h2>
+            <span>{{list_NAME}}</span>
+        </h2>
+        <span flex></span>
+        <button *ngIf="list_NAME" md-button class="md-icon-button" aria-label="Favorite" (click)="changeColor()">
+            <i class="fa fa-tint fa-lg" [style.color]="Color()"></i>
+        </button>
+        <button *ngIf="list_NAME" md-button class="md-icon-button" aria-label="More" data-toggle="modal"
+                [attr.data-target]="'#'+list_NAME">
+            <i class="fa fa-trash fa-lg" [style.color]="Color()"></i>
+
+        </button>
+    </div>
+</md-toolbar>
+
+
+<div *ngIf="!list_NAME" align="center" [style.padding-top]="isMobile() ? '62px' : '50px'">
+    <div class="md-whiteframe-3dp noList">
+        <i class="fa fa-list fa-4x icon"></i>
+    </div>
+    <h3 style="color:#878882">Bitte wähle eine Liste!</h3>
+</div>
+
+
+<div *ngIf="list_NAME" [style.padding-top]="isMobile() ? '62px' : '0'">
+    <!-- add Item input fields-->
+    <div class="list-group-item" style="z-index: 0">
+        <div class="input-group">
+            <input (keyup.enter)="addtodo()" [(ngModel)]="todo_TITLE" type="text" class="form-control"
+                   placeholder="new Item...">
+            <span class="input-group-btn">
+                <button (click)="addtodo()" class="btn btn-success" type="button">Add</button>
+            </span>
+        </div>
+    </div>
+
+
+    <!-- all Items-->
+    <a *ngFor="#item of list_TODOS | sortList ,#i=index" class="list-group-item"
+       (click)="item.checked=!item.checked;updateItem(item.id,item.checked);" [class.disabled]="item.checked"
+       style="cursor: pointer">
+
+        <div class="media">
+            <span class="glyphicon glyphicon-trash pull-right" style="cursor: pointer"
+                  (click)="deleteItem(item.id)"></span>
+            <div class="pull-left">
+                <label>
+                    {{i+1}}
+                </label>
+            </div>
+
+            <div class="media-body">
+                <h4 class="media-heading" [class.checked]="item.checked">{{item.title}}</h4>
+            </div>
+        </div>
+    </a>
+
+
+    <!-- Delete-Dialog-->
+    <div [attr.id]="list_NAME" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">Do you really want to delete list <strong> "{{list_NAME}}"</strong> ?</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="list-group">
+
+                        <!-- all Items-->
+                        <a *ngFor="#item of list_TODOS,#i=index" (click)="deleteItem(item.id)" class="list-group-item">
+
+                            <div class="media">
+                                <span class="label label-danger pull-right">3 Pendentes</span>
+                                <div class="checkbox pull-left">
+                                    <label>
+                                        {{i+1}}
+                                    </label>
+                                </div>
+                                <div class="pull-left">
+                                </div>
+                                <div class="media-body">
+                                    <h4 class="media-heading">{{item.title}}</h4>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-danger" (click)="deleteList()" data-dismiss="modal">Delete
+                    </button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+</div>

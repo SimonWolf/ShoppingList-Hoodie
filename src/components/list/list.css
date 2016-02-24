@@ -1,0 +1,19 @@
+.listToolbar{
+    transition: all 0.5s ease-in-out;
+
+}
+
+.noList{
+    background-color: #878882;
+    width: 150px;
+    height: 150px;
+    top: 100px;
+    left: 250px;
+    text-align: center;
+    border-radius: 75px;
+}
+.icon{
+    margin-top:50px;
+    color:white;
+    text-shadow: 1px 1px 10px #444444;
+}
