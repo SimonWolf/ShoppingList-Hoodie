@@ -8,7 +8,7 @@ declare var Hoodie:any;
 @Component({
     selector: "[list]",
     pipes: [SortListPipe],
-    templateUrl: "/components/list/list.directive.html",
+    templateUrl: "components/list/list.directive.html",
     inputs: ["list", "list_NAME", "hoodie", "list_ID"],
     directives: [MATERIAL_DIRECTIVES]
 })

@@ -7,7 +7,7 @@ import {HoodieService} from "../../services/hoodie.service";
 
 @Component({
     selector: "[login]",
-    templateUrl: "/components/login/login.directive.html",
+    templateUrl: "components/login/login.directive.html",
 
 })
 export class LoginDirective {
