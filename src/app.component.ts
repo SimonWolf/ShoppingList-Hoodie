@@ -55,7 +55,6 @@ export class AppComponent implements OnInit {
                     this._ngZone.runOutsideAngular(()=> {
                         this.listnames = listnames;
                         this._ngZone.run(() => {
-                            console.log("updated listnames");
                         });
                     });
                 });
@@ -79,7 +78,6 @@ export class AppComponent implements OnInit {
                     }
                 }
                 this._ngZone.run(() => {
-                    console.log("list removed");
                 });
             });
 
@@ -94,7 +92,6 @@ export class AppComponent implements OnInit {
                     this.listnames = res;
                 });
                 this._ngZone.run(() => {
-                    console.log("signin / signup");
                 });
             });
 
@@ -110,7 +107,6 @@ export class AppComponent implements OnInit {
                 this.username = "";
                 this.listnames = [];
                 this._ngZone.run(() => {
-                    console.log("signout");
                 });
             });
 

@@ -19,15 +19,18 @@ export class LoginDirective {
     constructor(private _ngZone:NgZone, builder:FormBuilder, _hoodieService:HoodieService) {
         this.hoodie = _hoodieService.hoodie;
         this.loginForm = builder.group({
-            username: ["", Validators.compose([Validators.required])],
-            password: ["", Validators.compose([Validators.required])]
+            username: ["", Validators.required],
+            password: ["", Validators.required]
         });
     }
 
     login(x) {
-        if (x.status = "VALID") {
-            this.hoodie.account.signIn(x.controls.username.value, x.controls.password.value);
+        console.log('login');
+        console.log(x.status);
+        if (x.status == "VALID") {
+            this.hoodie.account.signIn(x.value.username, x.controls.password.value);
         }
+        else{console.log("notvalid")}
     }
 
     sociallogin(x) {
@@ -41,6 +44,8 @@ export class LoginDirective {
     }
 
     register(x) {
+        console.log('register');
+
         this.hoodie.account.signUp(x.controls.username.value, x.controls.password.value);
     }
 

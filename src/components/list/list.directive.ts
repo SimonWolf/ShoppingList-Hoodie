@@ -33,7 +33,6 @@ export class ListDirective implements OnChanges,OnInit {
             this._ngZone.runOutsideAngular(()=> {
                 this.list_TODOS.unshift(newTodoObject);
                 this._ngZone.run(() => {
-                    console.log("Item added");
                 });
             });
         });
@@ -46,7 +45,6 @@ export class ListDirective implements OnChanges,OnInit {
                     }
                 }
                 this._ngZone.run(() => {
-                    console.log("Item removed");
                 });
             });
 
@@ -60,7 +58,6 @@ export class ListDirective implements OnChanges,OnInit {
                 this._ngZone.runOutsideAngular(()=> {
                     this.list_TODOS = allTodos;
                     this._ngZone.run(() => {
-                        console.log("get Items");
                     });
                 });
             });
@@ -73,7 +70,6 @@ export class ListDirective implements OnChanges,OnInit {
                     this.list_COLOR = r.color;
                 }
                 this._ngZone.run(() => {
-                    console.log("get color");
                 });
             });
         });
