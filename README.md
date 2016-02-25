@@ -23,3 +23,6 @@ Hoodie is a frontend abstraction of a generic backend web service.
       dev/start.sh
 
 The shoppinglist runs on <http://localhost:9999>
+
+##### screenshots:
+![Screenshots](https://github.com/SimonWolf/ShoppingList-Hoodie/blob/master/assets/images/frame.png?raw=true "Screenshots")
