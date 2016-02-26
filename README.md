@@ -29,7 +29,7 @@ Hoodie is a frontend abstraction of a generic backend web service.
      npm install -g cordova
 
 ##### 6. cordova plugins
-        cordova plugin add cordova-plugin-statusbar
+    cordova plugin add cordova-plugin-statusbar
 
 ### Initialization:
 ##### Install/update modules:
