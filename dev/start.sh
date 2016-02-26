@@ -5,7 +5,7 @@ cd ..
 
 gulp watch &
 gulp=$!
-hoodie start -no-local-tld &
+hoodie start -no-local-tld --port 6007 &
 hoodie=$!
 
 wait $gulp
