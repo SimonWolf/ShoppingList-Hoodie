@@ -7,7 +7,7 @@ Hoodie is a frontend abstraction of a generic backend web service.
 
 ## development:
 
-##### Get the prerequisites:
+### Get the prerequisites:
 
 [node.js](https://nodejs.org/en/)
 [bower](http://bower.io/)
@@ -15,14 +15,28 @@ Hoodie is a frontend abstraction of a generic backend web service.
 [hoodie-cli](http://hood.ie)
 [gulp](http://gulpjs.com/)
 
-##### install components:
+#### Installation on Linux - Ubuntu
+
+##### 1. Node.js
+     sudo add-apt-repository ppa:chris-lea/node.js
+     sudo apt-get update
+     sudo apt-get install nodejs
+
+##### 2. CouchDb
+     sudo apt-get update
+     sudo apt-get install couchdb-bin git
+
+##### 3. Hoddie-Cli
+     npm install -g hoodie-cli
+
+### install components:
      dev/update_libs.sh
 
 
-##### start application:
+### start application:
       dev/start.sh
 
 The shoppinglist runs on <http://localhost:9999>
 
-##### screenshots:
+### screenshots:
 ![Screenshots](https://github.com/SimonWolf/ShoppingList-Hoodie/blob/master/assets/images/frame.png?raw=true "Screenshots")

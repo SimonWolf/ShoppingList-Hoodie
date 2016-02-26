@@ -6,7 +6,6 @@
     "es6-promise": "3.0.2",
     "es6-shim": "0.33.3",
     "hoodie-plugin-angularjs": "^0.1.1",
-    "hoodie-plugin-social": "^0.10.1",
     "reflect-metadata": "0.1.2",
     "rxjs": "5.0.0-beta.0",
     "zone.js": "0.5.14",
@@ -63,8 +62,7 @@
     "plugins": [
       "hoodie-plugin-appconfig",
       "hoodie-plugin-email",
-      "hoodie-plugin-users",
-      "hoodie-plugin-social"
+      "hoodie-plugin-users"
     ]
   },
   "bundleDependencies": [
