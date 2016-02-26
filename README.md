@@ -36,6 +36,16 @@ Hoodie is a frontend abstraction of a generic backend web service.
 ### start application:
       dev/start.sh
 
+## Mobile (Cordova)
+
+#### install Cordova
+    npm install -g cordova
+
+
+#### install Cordova plugins
+
+    cordova plugin add cordova-plugin-statusbar
+
 The shoppinglist runs on <http://localhost:9999>
 
 ### screenshots:
