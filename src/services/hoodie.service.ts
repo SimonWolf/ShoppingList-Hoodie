@@ -8,7 +8,7 @@ declare var hello:any;
 
 export class HoodieService {
 
-    public hoodie:any = new Hoodie();
+    public hoodie:any = new Hoodie("http://192.168.1.165:9999");
     public hello:any = new hello();
 
     constructor() {

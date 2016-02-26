@@ -69,6 +69,9 @@ export class ListDirective implements OnChanges,OnInit {
                 } else {
                     this.list_COLOR = r.color;
                 }
+                if (cordova.platformId == 'android') {
+                    StatusBar.backgroundColorByHexString(COLORS[this.list_COLOR].secondaryColor);
+                }
                 this._ngZone.run(() => {
                 });
             });
@@ -87,6 +90,9 @@ export class ListDirective implements OnChanges,OnInit {
         this.list_COLOR++;
         if (this.list_COLOR >= 20) {
             this.list_COLOR = 0;
+        }
+        if (cordova.platformId == 'android') {
+            StatusBar.backgroundColorByHexString(COLORS[this.list_COLOR].secondaryColor);
         }
         this.hoodie.store.update("listnames", this.list_ID, {color: this.list_COLOR});
 

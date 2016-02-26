@@ -21,7 +21,7 @@
 </md-toolbar>
 
 
-<div *ngIf="!list_NAME" align="center" [style.padding-top]="isMobile() ? '62px' : '50px'">
+<div *ngIf="!list_NAME" align="center" [style.padding-top]="isMobile() ? '62px' : '50px'" style="border-color: #cacbcd;border-left-width: thin;border-left-style: solid;">
     <div class="md-whiteframe-3dp noList">
         <i class="fa fa-list fa-4x icon"></i>
     </div>
@@ -29,7 +29,7 @@
 </div>
 
 
-<div *ngIf="list_NAME" [style.padding-top]="isMobile() ? '62px' : '0'">
+<div *ngIf="list_NAME" [style.padding-top]="isMobile() ? '62px' : '0'" style="border-color: #cacbcd;border-left-width: thin;border-left-style: solid;">
     <!-- add Item input fields-->
     <div class="list-group-item" style="z-index: 0">
         <div class="input-group">
